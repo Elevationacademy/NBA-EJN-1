@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My NBA Roster</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+    <div id="search-container">
+
+        <input id="input" type="text" placeholder="Team Name">
+        <button onclick=fetch()>GET ROSTER</button>
+    </div>
+
+    <div id="roster"></div>
+    <script id="roster-template" type="text/x-handlebars-template">
+              {{#each player}}
+                <div class="player">
+                    <p class="name">{{firstName}} {{lastName}}</p>
+                    <p class="number">{{jersey}}</p>
+                    <img src="https://nba-players.herokuapp.com/players/{{lastName}}/{{firstName}}">
+                    <p class="pos">{{pos}}</p>
+
+                </div>
+                {{/each}}
+             </script>
+
+    </script>
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
