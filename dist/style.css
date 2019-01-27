@@ -1,0 +1,18 @@
+#roster{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.player{
+    display: grid;
+    background-color: orange;
+    text-align: center;
+    align-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 5px 5px;
+}
+
+img {
+    box-shadow: 5px 5px;
+}
