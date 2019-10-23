@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My NBA Roster</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel:900|Graduate" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 
@@ -22,7 +23,9 @@
                 <div class="player">
                     <p class="name">{{firstName}} {{lastName}}</p>
                     <p class="number">{{jersey}}</p>
-                    <img src="https://nba-players.herokuapp.com/players/{{lastName}}/{{firstName}}">
+                    <div class="player-image">
+                        <img src="https://nba-players.herokuapp.com/players/{{lastName}}/{{firstName}}">
+                    </div>
                     <p class="pos">{{pos}}</p>
 
                 </div>
