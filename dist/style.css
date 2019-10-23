@@ -1,18 +1,44 @@
+#search-container{
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+}
+
+*{
+    font-family: 'Graduate', cursive;
+    font-size: 1.1em;
+}
+
+body{
+    background-color: #bdc3c7;
+}
+
+input{
+    padding: 1vw;
+    text-transform: uppercase;
+}
+
 #roster{
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
+    padding: 1vw;
 }
-
+p{
+    margin: 0;
+    padding: 0;
+}
 .player{
-    display: grid;
+    /* display: grid; */
     background-color: orange;
     text-align: center;
     align-content: center;
     font-family: 'Courier New', Courier, monospace;
-    box-shadow: 5px 5px;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
-img {
-    box-shadow: 5px 5px;
+.player-image{
+    background-color: #bdc3c7;
+    box-shadow: 1px 1px 3px black;
+    box-sizing: border-box;
 }
