@@ -42,3 +42,8 @@ p{
     box-shadow: 1px 1px 3px black;
     box-sizing: border-box;
 }
+
+img {
+    width: 350px;
+    height: 300px;
+}
