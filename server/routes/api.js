@@ -3,7 +3,7 @@ const router = express.Router()
 const request = require('request')
 
 const teamToIDs = {
-    "lakers": "1610612747",
+    lakers: "1610612747",
     "warriors": "1610612744",
     "heat": "1610612748",
     "suns": "1610612756"
@@ -16,7 +16,8 @@ const json = {
 
 
 request('http://data.nba.net/10s/prod/v1/2018/players.json', (err, res) => {
-    json.data = JSON.parse(res.body).league.standard
+    const result = res.body
+    json.data = JSON.parse(result).league.standard
 })
 
 router.get(`/teams/:teamName`, (req, res) => {
@@ -28,8 +29,5 @@ router.get(`/teams/:teamName`, (req, res) => {
 
     res.send(team)
 })
-
-
-
 
 module.exports = router
