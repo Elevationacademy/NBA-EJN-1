@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const request = require('request')
+const urllib = require('urllib')
 
 const teamToIDs = {
-    lakers: "1610612747",
+    "lakers": "1610612747",
     "warriors": "1610612744",
     "heat": "1610612748",
     "suns": "1610612756"
@@ -15,17 +15,17 @@ const json = {
 
 
 
-request('http://data.nba.net/10s/prod/v1/2018/players.json', (err, res) => {
-    const result = res.body
-    json.data = JSON.parse(result).league.standard
+urllib.request('http://data.nba.net/10s/prod/v1/2018/players.json', (err, res) => {
+    const result = JSON.parse(res.toString())
+    json.data = result.league.standard
 })
 
 router.get(`/teams/:teamName`, (req, res) => {
-    let teamID = teamToIDs[req.params.teamName]
+    const teamID = teamToIDs[req.params.teamName]
 
-    let team = json.data
-        .filter(d => d.teamId === teamID && d.isActive)
-        .map(d => { return { firstName: d.firstName, lastName: d.lastName, jersey: d.jersey, pos: d.pos } })
+    const team = json.data
+        .filter(p => p.teamId === teamID && p.isActive)
+        .map(p => { return { firstName: p.firstName, lastName: p.lastName, jersey: p.jersey, pos: p.pos } })
 
     res.send(team)
 })
