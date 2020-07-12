@@ -24,7 +24,10 @@
             <p class="name">{{firstName}} {{lastName}}</p>
             <p class="number">{{jersey}}</p>
             <div class="player-image">
-                <img src="https://nba-players.herokuapp.com/players/{{lastName}}/{{firstName}}" onerror="setDefaultImg(this)">
+                <img
+                    src="{{img}}"
+                    onerror="setDefaultImg(this)"
+                >
             </div>
             <p class="pos">{{pos}}</p>
         </div>

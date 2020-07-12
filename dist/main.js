@@ -8,7 +8,7 @@ const render = function (roster) {
 
 const fetch = function () {
     const input = $(`#input`).val().toLowerCase()
-    $.get(`/teams/${input}`, function (response) {
+    $.get(`/api/teams/${input}`, function (response) {
         render(response)
     })
 }

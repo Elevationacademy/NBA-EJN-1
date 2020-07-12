@@ -21,13 +21,31 @@ urllib.request('http://data.nba.net/10s/prod/v1/2018/players.json', (err, res) =
 })
 
 router.get(`/teams/:teamName`, (req, res) => {
-    const teamID = teamToIDs[req.params.teamName]
+    // const teamName = req.params.teamName
+    const { teamName } = req.params
+    const [a, b] = ['shobbi', 'doobi']
 
-    const team = json.data
-        .filter(p => p.teamId === teamID && p.isActive)
-        .map(p => { return { firstName: p.firstName, lastName: p.lastName, jersey: p.jersey, pos: p.pos } })
+    if (teamToIDs[teamName]) {
 
-    res.send(team)
+        const teamID = teamToIDs[teamName]
+
+        const team = json.data
+            .filter(p => p.teamId === teamID && p.isActive)
+            .map(p => {
+                return {
+                    firstName: p.firstName,
+                    lastName: p.lastName,
+                    jersey: p.jersey || 'unavailable',
+                    pos: p.pos,
+                    img:`https:nba-players.herokuapp.com/players/${p.lastName}/${p.firstName}`
+                }
+            })
+
+        res.send(team)
+    } else {
+        res.send({ error: 'not found' })
+    }
+
 })
 
 module.exports = router
